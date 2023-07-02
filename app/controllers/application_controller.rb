@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-    def new 
+    def new
         render :new
     end
+    before_action :authenticate_user!
 end
