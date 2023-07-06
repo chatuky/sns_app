@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :people
 # PostsController
   get 'posts/new', to: 'posts#new', as: 'new_post'
   get 'posts/index', to: 'posts#index', as: 'index_post'
