@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :people
-# PostsController
-  get 'posts/new', to: 'posts#new', as: 'new_post'
-  get 'posts/index', to: 'posts#index', as: 'index_post'
-  # TopicController
+  devise_for :users
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Defines the root path route ("/")
+  # root "articles#index"
+
+  # PostsController
+  get '/', to: 'posts#index', as: 'index_post'
+  get 'posts/new', to: 'posts#new', as: 'new_post' # これです
+  # この行を追加
+  post 'posts/new', to: 'posts#create', as: 'create_post'
+  
+  # TopicsController
   get 'topics/new', to: 'topics#new', as: 'new_topic'
-  get 'topics/edit', to: 'topics#edit', as: 'edit_topic'
-end
+  get 'topics/edit/:id', to: 'topics#edit', as: 'edit_topic'
+　  # 課題で追加
+　post 'topics/new', to: 'topics#create', as: 'create_topic'
+end 
