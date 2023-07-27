@@ -12,10 +12,6 @@ class PostsController < ApplicationController
     end
     render :index
   end
-  # ここまで
-    render 'posts/index'
-　end
-  
   # 2-10で追加
   def new
     @post = Post.new
@@ -34,6 +30,29 @@ class PostsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+  # 2-12で追加
+  def edit
+    @post = Post.find(params[:id])
+    render :edit
+  end 
+  
+  def update
+    @post = Post.find(params[:id])
+    if params[:post][:image]
+      @post.image.attach(params[:post][:image])
+    end
+    if @post.update(post_params)
+      redirect_to index_post_path, notice: '更新しました'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+  #2-12で追加削除指示
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to index_post_path, notice: '削除しました'
   end
 
   private

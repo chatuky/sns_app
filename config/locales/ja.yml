@@ -4,17 +4,24 @@ ja:
       user: 'ユーザー'
       #postを追加
       post: '投稿'
-      title: 'タイトル'
+      topic: 'トピックス'
+      # 2-13で追加
+      comment: 'コメント'
     attributes:
       user:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認用'
-      #postを追加
       post:
         title: 'タイトル'
         content: '内容'
         image: '画像'
+       topic:
+        title: 'タイトル'
+      #2-13で追加
+      comment:
+        content: 'コメント' 
+  
   date:
     abbr_day_names:
       - 日
@@ -245,4 +252,4 @@ ja:
       #        subject: 'Reset password instructions'
       unlock_instructions:
         subject: 'アカウントの凍結解除'
-#        subject: 'Unlock Instructions'
+#     #        subject: 'Unlock Instructions'
